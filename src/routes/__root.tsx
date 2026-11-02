@@ -99,32 +99,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: ReactNode }) {
+function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-   export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "google-adsense-account", content: "ca-pub-9324928074717626" },
-    ],
-    scripts: [
-      {
-        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9324928074717626",
-        async: true,
-        crossOrigin: "anonymous",
-      },
-    ],
-  }),
-  component: RootComponent,
-});
+      <head>
+        <HeadContent />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9324928074717626"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body>
         {children}
         <Scripts />
       </body>
     </html>
+  );
+}
+
+
   );
 }
 
