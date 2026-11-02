@@ -103,14 +103,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <head>
-  <script
-    async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9324928074717626"
-    crossOrigin="anonymous"
-  ></script>
-  <HeadContent />
-</head>
+     export const Route = createRootRoute({
+  head: () => ({
+    meta: [
+      // ...الميتا اللي عندك
+      { name: "google-adsense-account", content: "ca-pub-9324928074717626" },
+    ],
+    scripts: [
+      {
+        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9324928074717626",
+        async: true,
+        crossOrigin: "anonymous",
+      },
+    ],
+  }),
+  // ...باقي الكود
+});
       <body>
         {children}
         <Scripts />
