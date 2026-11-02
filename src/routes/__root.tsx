@@ -103,10 +103,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-     export const Route = createRootRoute({
+   export const Route = createRootRoute({
   head: () => ({
     meta: [
-      // ...الميتا اللي عندك
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "google-adsense-account", content: "ca-pub-9324928074717626" },
     ],
     scripts: [
@@ -117,7 +118,7 @@ function RootShell({ children }: { children: ReactNode }) {
       },
     ],
   }),
-  // ...باقي الكود
+  component: RootComponent,
 });
       <body>
         {children}
